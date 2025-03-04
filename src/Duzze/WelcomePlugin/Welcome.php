@@ -7,7 +7,7 @@ namespace Duzze\WelcomePlugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\level\sound\AnvilBreakSound;
+use pocketmine\level\sound\GhastShootSound;
 use pocketmine\utils\Config;
 
 class WelcomePlugin extends PluginBase implements Listener {
@@ -24,11 +24,11 @@ class WelcomePlugin extends PluginBase implements Listener {
     public function onPlayerJoin(PlayerJoinEvent $event): void {
         $player = $event->getPlayer();
         
-        $welcomeMessage = $this->config->get("welcome_message", "Welcome Player (;");
+        $welcomeMessage = $this->config->get("welcome_message", "§l§gWelcome§r /n §fHave Good Game!§r!");
         
         $player->sendMessage(str_replace("\n", "\n", $welcomeMessage));
 
-        $sound = new AnvilBreakSound($player->getPosition());
+        $sound = new GhastShootSound ($player->getPosition());
         $player->getLevel()->addSound($sound);
     }
 }
