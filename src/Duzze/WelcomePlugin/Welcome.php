@@ -24,7 +24,7 @@ class WelcomePlugin extends PluginBase implements Listener {
     public function onPlayerJoin(PlayerJoinEvent $event): void {
         $player = $event->getPlayer();
         
-        $welcomeMessage = $this->config->get("welcome_message", "§l§gWelcome§r /n §fHave Good Game!§r!");
+        $welcomeMessage = $this->config->get("welcome_message", "Bem-vindo ao servidor!");
         
         $player->sendMessage(str_replace("\n", "\n", $welcomeMessage));
 
